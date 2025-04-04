@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Quadrat.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #5f826b; font-style: italic;}
+.s1 { color: #bcbec4;}
+.s2 { color: #cf8e6d;}
+.s3 { color: #bcbec4;}
+.s4 { color: #7a7e85;}
+.s5 { color: #67a37c; font-style: italic;}
+.s6 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Quadrat.java</font>
+</center></td></tr></table>
+<pre><span class="s0">/**</span>
+ <span class="s0">* Klasse Quadrat: Unterklasse von Punkt.</span>
+ <span class="s0">* Speichert zusätzlich den Wert deltaX, der die Hälfte der Seitenlänge repräsentiert.</span>
+ <span class="s0">*/</span>
+<span class="s2">public class </span><span class="s1">Quadrat </span><span class="s2">extends </span><span class="s1">Punkt </span><span class="s3">{</span>
+    <span class="s2">protected double </span><span class="s1">deltaX</span><span class="s3">; </span><span class="s4">// Hälfte der Seitenlänge</span>
+
+    <span class="s0">/**</span>
+     <span class="s0">* Konstruktor für ein Quadrat.</span>
+     <span class="s0">* </span><span class="s5">@param </span><span class="s0">x x-Koordinate (von Punkt)</span>
+     <span class="s0">* </span><span class="s5">@param </span><span class="s0">y y-Koordinate (von Punkt)</span>
+     <span class="s0">* </span><span class="s5">@param </span><span class="s0">deltaX Hälfte der Seitenlänge</span>
+     <span class="s0">*/</span>
+    <span class="s2">public </span><span class="s1">Quadrat</span><span class="s3">(</span><span class="s2">double </span><span class="s1">x</span><span class="s3">, </span><span class="s2">double </span><span class="s1">y</span><span class="s3">, </span><span class="s2">double </span><span class="s1">deltaX</span><span class="s3">) {</span>
+        <span class="s2">super</span><span class="s3">(</span><span class="s1">x</span><span class="s3">, </span><span class="s1">y</span><span class="s3">);</span>
+        <span class="s2">this</span><span class="s3">.</span><span class="s1">deltaX </span><span class="s3">= </span><span class="s1">deltaX</span><span class="s3">;</span>
+    <span class="s3">}</span>
+
+    <span class="s0">/**</span>
+     <span class="s0">* Berechnet und gibt den Umfang des Quadrats zurück.</span>
+     <span class="s0">* Die volle Seitenlänge ist 2 * deltaX, daher ist der Umfang 4 * (2 * deltaX).</span>
+     <span class="s0">* </span><span class="s5">@return </span><span class="s0">Umfang des Quadrats</span>
+     <span class="s0">*/</span>
+    <span class="s2">public double </span><span class="s1">getUmfang</span><span class="s3">() {</span>
+        <span class="s2">return </span><span class="s6">4 </span><span class="s3">* (</span><span class="s6">2 </span><span class="s3">* </span><span class="s1">deltaX</span><span class="s3">);</span>
+    <span class="s3">}</span>
+<span class="s3">}</span>
+</pre>
+</body>
+</html>

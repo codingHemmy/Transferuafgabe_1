@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Test.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #5f826b; font-style: italic;}
+.s1 { color: #bcbec4;}
+.s2 { color: #cf8e6d;}
+.s3 { color: #bcbec4;}
+.s4 { color: #67a37c; font-style: italic;}
+.s5 { color: #6aab73;}
+.s6 { color: #7a7e85;}
+.s7 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Test.java</font>
+</center></td></tr></table>
+<pre><span class="s0">/**</span>
+ <span class="s0">* Testklasse zur Erstellung von Objekten und Ausgabe der Daten.</span>
+ <span class="s0">*/</span>
+<span class="s2">public class </span><span class="s1">Test </span><span class="s3">{</span>
+
+    <span class="s0">/**</span>
+     <span class="s0">* Gibt die Daten der übergebenen Objekte aus.</span>
+     <span class="s0">* Für jedes Objekt werden die Koordinaten x und y ausgegeben.</span>
+     <span class="s0">* Abhängig vom Typ wird zusätzlich der Umfang (bei Quadrat und Kreis) bzw. die Fläche (bei Rechteck und Kreis) ausgegeben.</span>
+     <span class="s0">* </span><span class="s4">@param </span><span class="s0">objArray Array von Objekten vom Typ Punkt</span>
+     <span class="s0">*/</span>
+    <span class="s2">public static void </span><span class="s1">gebeDatenAus</span><span class="s3">(</span><span class="s1">Punkt</span><span class="s3">[] </span><span class="s1">objArray</span><span class="s3">) {</span>
+        <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s5">&quot;Anzahl der Objekte: &quot; </span><span class="s3">+ </span><span class="s1">objArray</span><span class="s3">.</span><span class="s1">length</span><span class="s3">);</span>
+        <span class="s2">for </span><span class="s3">(</span><span class="s1">Punkt p </span><span class="s3">: </span><span class="s1">objArray</span><span class="s3">) {</span>
+            <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s5">&quot;Objekt: x = &quot; </span><span class="s3">+ </span><span class="s1">p</span><span class="s3">.</span><span class="s1">getX</span><span class="s3">() + </span><span class="s5">&quot;, y = &quot; </span><span class="s3">+ </span><span class="s1">p</span><span class="s3">.</span><span class="s1">getY</span><span class="s3">());</span>
+
+            <span class="s6">// Da Rechteck eine Unterklasse von Quadrat ist, erfolgt zuerst der Typvergleich</span>
+            <span class="s2">if </span><span class="s3">(</span><span class="s1">p </span><span class="s2">instanceof </span><span class="s1">Rechteck</span><span class="s3">) {</span>
+                <span class="s1">Rechteck r </span><span class="s3">= (</span><span class="s1">Rechteck</span><span class="s3">) </span><span class="s1">p</span><span class="s3">;</span>
+                <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s5">&quot;Rechteck Fläche: &quot; </span><span class="s3">+ </span><span class="s1">r</span><span class="s3">.</span><span class="s1">getFlaeche</span><span class="s3">());</span>
+            <span class="s3">}</span>
+            <span class="s2">if </span><span class="s3">(</span><span class="s1">p </span><span class="s2">instanceof </span><span class="s1">Kreis</span><span class="s3">) {</span>
+                <span class="s1">Kreis k </span><span class="s3">= (</span><span class="s1">Kreis</span><span class="s3">) </span><span class="s1">p</span><span class="s3">;</span>
+                <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s5">&quot;Kreis Umfang: &quot; </span><span class="s3">+ </span><span class="s1">k</span><span class="s3">.</span><span class="s1">getUmfang</span><span class="s3">() + </span><span class="s5">&quot;, Fläche: &quot; </span><span class="s3">+ </span><span class="s1">k</span><span class="s3">.</span><span class="s1">getFlaeche</span><span class="s3">());</span>
+            <span class="s3">}</span>
+            <span class="s6">// Falls das Objekt ein Quadrat ist, aber kein Rechteck (da Rechteck auch ein Quadrat ist)</span>
+            <span class="s2">if </span><span class="s3">(</span><span class="s1">p </span><span class="s2">instanceof </span><span class="s1">Quadrat </span><span class="s3">&amp;&amp; !(</span><span class="s1">p </span><span class="s2">instanceof </span><span class="s1">Rechteck</span><span class="s3">)) {</span>
+                <span class="s1">Quadrat q </span><span class="s3">= (</span><span class="s1">Quadrat</span><span class="s3">) </span><span class="s1">p</span><span class="s3">;</span>
+                <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s5">&quot;Quadrat Umfang: &quot; </span><span class="s3">+ </span><span class="s1">q</span><span class="s3">.</span><span class="s1">getUmfang</span><span class="s3">());</span>
+            <span class="s3">}</span>
+            <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s5">&quot;-------------------------&quot;</span><span class="s3">);</span>
+        <span class="s3">}</span>
+    <span class="s3">}</span>
+
+    <span class="s0">/**</span>
+     <span class="s0">* Main-Methode: Erstellt einzelne Objekte und ein Array von Objekten,</span>
+     <span class="s0">* ruft die Methoden zur Berechnung und Ausgabe auf.</span>
+     <span class="s0">* </span><span class="s4">@param </span><span class="s0">args Kommandozeilenargumente (werden nicht genutzt)</span>
+     <span class="s0">*/</span>
+    <span class="s2">public static void </span><span class="s1">main</span><span class="s3">(</span><span class="s1">String</span><span class="s3">[] </span><span class="s1">args</span><span class="s3">) {</span>
+        <span class="s6">// Erzeuge einzelne Objekte</span>
+        <span class="s1">Quadrat q1 </span><span class="s3">= </span><span class="s2">new </span><span class="s1">Quadrat</span><span class="s3">(</span><span class="s7">0</span><span class="s3">, </span><span class="s7">0</span><span class="s3">, </span><span class="s7">2</span><span class="s3">);       </span><span class="s6">// Quadrat mit Seitenlänge 4 (Umfang 16)</span>
+        <span class="s1">Rechteck r1 </span><span class="s3">= </span><span class="s2">new </span><span class="s1">Rechteck</span><span class="s3">(</span><span class="s7">1</span><span class="s3">, </span><span class="s7">1</span><span class="s3">, </span><span class="s7">3</span><span class="s3">, </span><span class="s7">2</span><span class="s3">);   </span><span class="s6">// Rechteck mit Seitenlängen 6 und 4 (Fläche 24)</span>
+        <span class="s1">Kreis k1 </span><span class="s3">= </span><span class="s2">new </span><span class="s1">Kreis</span><span class="s3">(</span><span class="s7">2</span><span class="s3">, </span><span class="s7">2</span><span class="s3">, </span><span class="s7">3</span><span class="s3">);             </span><span class="s6">// Kreis mit Radius 3</span>
+
+        <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s5">&quot;Einzelne Objekte:&quot;</span><span class="s3">);</span>
+        <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s5">&quot;Quadrat Umfang: &quot; </span><span class="s3">+ </span><span class="s1">q1</span><span class="s3">.</span><span class="s1">getUmfang</span><span class="s3">());</span>
+        <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s5">&quot;Rechteck Fläche: &quot; </span><span class="s3">+ </span><span class="s1">r1</span><span class="s3">.</span><span class="s1">getFlaeche</span><span class="s3">());</span>
+        <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s5">&quot;Kreis Umfang: &quot; </span><span class="s3">+ </span><span class="s1">k1</span><span class="s3">.</span><span class="s1">getUmfang</span><span class="s3">());</span>
+        <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s5">&quot;Kreis Fläche: &quot; </span><span class="s3">+ </span><span class="s1">k1</span><span class="s3">.</span><span class="s1">getFlaeche</span><span class="s3">());</span>
+
+        <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s5">&quot;</span><span class="s2">\n</span><span class="s5">Array von Objekten:&quot;</span><span class="s3">);</span>
+        <span class="s6">// Erstelle ein Array mit fünf Objekten (Kombination aus Quadrat, Rechteck und Kreis)</span>
+        <span class="s1">Punkt</span><span class="s3">[] </span><span class="s1">objArray </span><span class="s3">= </span><span class="s2">new </span><span class="s1">Punkt</span><span class="s3">[</span><span class="s7">5</span><span class="s3">];</span>
+        <span class="s1">objArray</span><span class="s3">[</span><span class="s7">0</span><span class="s3">] = </span><span class="s1">q1</span><span class="s3">;</span>
+        <span class="s1">objArray</span><span class="s3">[</span><span class="s7">1</span><span class="s3">] = </span><span class="s1">r1</span><span class="s3">;</span>
+        <span class="s1">objArray</span><span class="s3">[</span><span class="s7">2</span><span class="s3">] = </span><span class="s1">k1</span><span class="s3">;</span>
+        <span class="s1">objArray</span><span class="s3">[</span><span class="s7">3</span><span class="s3">] = </span><span class="s2">new </span><span class="s1">Quadrat</span><span class="s3">(</span><span class="s7">3</span><span class="s3">, </span><span class="s7">3</span><span class="s3">, </span><span class="s7">1.5</span><span class="s3">);   </span><span class="s6">// weiteres Quadrat</span>
+        <span class="s1">objArray</span><span class="s3">[</span><span class="s7">4</span><span class="s3">] = </span><span class="s2">new </span><span class="s1">Kreis</span><span class="s3">(</span><span class="s7">4</span><span class="s3">, </span><span class="s7">4</span><span class="s3">, </span><span class="s7">2</span><span class="s3">);         </span><span class="s6">// weiterer Kreis</span>
+
+        <span class="s6">// Übergabe des Arrays an die Methode gebeDatenAus</span>
+        <span class="s1">gebeDatenAus</span><span class="s3">(</span><span class="s1">objArray</span><span class="s3">);</span>
+    <span class="s3">}</span>
+<span class="s3">}</span></pre>
+</body>
+</html>
