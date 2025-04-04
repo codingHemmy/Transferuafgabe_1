@@ -1,64 +1,66 @@
 /**
- * Testklasse zur Erstellung von Objekten und Ausgabe der Daten.
+ * Testklasse zur Erzeugung und Demonstration der Funktionalität
+ * der Klassen Quadrat, Rechteck und Kreis.
  */
 public class Test {
+    public static void main(String[] args) {
+        // Erzeuge einzelne Objekte
+        Quadrat q = new Quadrat(0.0, 0.0, 5.0);
+        Rechteck r = new Rechteck(1.0, 1.0, 3.0, 4.0);
+        Kreis k = new Kreis(2.0, 2.0, 6.0);
 
-    /**
-     * Gibt die Daten der übergebenen Objekte aus.
-     * Für jedes Objekt werden die Koordinaten x und y ausgegeben.
-     * Abhängig vom Typ wird zusätzlich der Umfang (bei Quadrat und Kreis) bzw. die Fläche (bei Rechteck und Kreis) ausgegeben.
-     * @param objArray Array von Objekten vom Typ Punkt
-     */
-    public static void gebeDatenAus(Punkt[] objArray) {
-        System.out.println("Anzahl der Objekte: " + objArray.length);
-        for (Punkt p : objArray) {
-            System.out.println("Objekt: x = " + p.getX() + ", y = " + p.getY());
+        // Ausgabe der Einzelobjekte und deren Berechnungen
+        System.out.println(q.toString());
+        System.out.println("Quadrat Umfang: " + q.getUmfang());
+        System.out.println();
 
-            // Da Rechteck eine Unterklasse von Quadrat ist, erfolgt zuerst der Typvergleich
-            if (p instanceof Rechteck) {
-                Rechteck r = (Rechteck) p;
-                System.out.println("Rechteck Fläche: " + r.getFlaeche());
-            }
-            if (p instanceof Kreis) {
-                Kreis k = (Kreis) p;
-                System.out.println("Kreis Umfang: " + k.getUmfang() + ", Fläche: " + k.getFlaeche());
-            }
-            // Falls das Objekt ein Quadrat ist, aber kein Rechteck (da Rechteck auch ein Quadrat ist)
-            if (p instanceof Quadrat && !(p instanceof Rechteck)) {
-                Quadrat q = (Quadrat) p;
-                System.out.println("Quadrat Umfang: " + q.getUmfang());
-            }
-            System.out.println("-------------------------");
-        }
+        System.out.println(r.toString());
+        System.out.println("Rechteck Fläche: " + r.getFlaeche());
+        System.out.println();
+
+        System.out.println(k.toString());
+        System.out.println("Kreis Umfang: " + k.getUmfang());
+        System.out.println("Kreis Fläche: " + k.getFlaeche());
+        System.out.println("\n---------------------------\n");
+
+        // Erzeuge ein Array mit fünf Objekten (Mischung aus Quadrat, Rechteck und Kreis)
+        Punkt[] objekte = new Punkt[5];
+        objekte[0] = new Quadrat(0.0, 0.0, 2.5);
+        objekte[1] = new Rechteck(1.0, 1.0, 3.0, 4.0);
+        objekte[2] = new Kreis(2.0, 2.0, 5.0);
+        objekte[3] = new Quadrat(3.0, 3.0, 1.5);
+        objekte[4] = new Kreis(4.0, 4.0, 3.0);
+
+        // Übergabe des Arrays an die Methode zur Ausgabe
+        gebeDatenAus(objekte);
     }
 
     /**
-     * Main-Methode: Erstellt einzelne Objekte und ein Array von Objekten,
-     * ruft die Methoden zur Berechnung und Ausgabe auf.
-     * @param args Kommandozeilenargumente (werden nicht genutzt)
+     * Gibt für jedes Objekt im Array dessen Attribute und, je nach Typ,
+     * den Umfang (bei Quadrat und Kreis) bzw. die Fläche (bei Rechteck und Kreis)
+     * in der Konsole aus.
+     *
+     * @param objekte Array von Objekten, die von Punkt abgeleitet sind.
      */
-    public static void main(String[] args) {
-        // Erzeuge einzelne Objekte
-        Quadrat q1 = new Quadrat(0, 0, 2);       // Quadrat mit Seitenlänge 4 (Umfang 16)
-        Rechteck r1 = new Rechteck(1, 1, 3, 2);   // Rechteck mit Seitenlängen 6 und 4 (Fläche 24)
-        Kreis k1 = new Kreis(2, 2, 3);             // Kreis mit Radius 3
-
-        System.out.println("Einzelne Objekte:");
-        System.out.println("Quadrat Umfang: " + q1.getUmfang());
-        System.out.println("Rechteck Fläche: " + r1.getFlaeche());
-        System.out.println("Kreis Umfang: " + k1.getUmfang());
-        System.out.println("Kreis Fläche: " + k1.getFlaeche());
-
-        System.out.println("\nArray von Objekten:");
-        // Erstelle ein Array mit fünf Objekten (Kombination aus Quadrat, Rechteck und Kreis)
-        Punkt[] objArray = new Punkt[5];
-        objArray[0] = q1;
-        objArray[1] = r1;
-        objArray[2] = k1;
-        objArray[3] = new Quadrat(3, 3, 1.5);   // weiteres Quadrat
-        objArray[4] = new Kreis(4, 4, 2);         // weiterer Kreis
-
-        // Übergabe des Arrays an die Methode gebeDatenAus
-        gebeDatenAus(objArray);
+    public static void gebeDatenAus(Punkt[] objekte) {
+        System.out.println("Anzahl der Objekte: " + objekte.length);
+        for (Punkt p : objekte) {
+            System.out.println(p.toString());
+            // Überprüfe den Typ und rufe die entsprechenden Methoden auf
+            if (p instanceof Quadrat && !(p instanceof Rechteck)) {
+                Quadrat temp = (Quadrat) p;
+                System.out.println("Quadrat Umfang: " + temp.getUmfang());
+            }
+            if (p instanceof Rechteck) {
+                Rechteck temp = (Rechteck) p;
+                System.out.println("Rechteck Fläche: " + temp.getFlaeche());
+            }
+            if (p instanceof Kreis) {
+                Kreis temp = (Kreis) p;
+                System.out.println("Kreis Umfang: " + temp.getUmfang());
+                System.out.println("Kreis Fläche: " + temp.getFlaeche());
+            }
+            System.out.println("---------------------------");
+        }
     }
 }
